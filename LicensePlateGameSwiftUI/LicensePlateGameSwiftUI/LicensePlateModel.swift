@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
-struct LicensePlateModel {
+class LicensePlateModel: NSObject, ObservableObject {
+    
+    let objectWillChange = PassthroughSubject<LicensePlateModel, Never>()
+    
     public let stateNames:[String] = ["Utah","Colorado","Montana","New Mexico","Arizona"]
 }

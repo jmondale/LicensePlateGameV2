@@ -9,27 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var devTechieCourses = [
-                "Mastering SwiftUI 3",
-                "Machine Learning in iOS",
-                "Goals app in SwiftUI",
-                "E-Commerce App in SwiftUI 3"
-            ]
+    @ObservedObject var model: LicensePlateModel
     
     var body: some View {
         NavigationView {
-            List(devTechieCourses, id: \.self) { course in
+            List(model.stateNames, id: \.self) { course in
                             ListCell(title: course)
                         }
                         .listStyle(.plain)
-                        .navigationTitle("DevTechie Courses")
+                        .navigationTitle("License Plate Game")
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let model = LicensePlateModel()
+        ContentView(model: model)
     }
 }
 
